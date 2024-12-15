@@ -69,7 +69,7 @@ function renderTools() {
     `;
     
     toolCard.addEventListener('click', () => {
-      window.location.href = tool.url;
+      window.open(tool.url, '_blank');
     });
     
     toolsContainer.appendChild(toolCard);
