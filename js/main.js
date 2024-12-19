@@ -31,7 +31,7 @@ const tools = [
   {
     name: 'External Resource Checker',
     description: 'Verify libraries and resources used on web pages.',
-    url: 'https://kvanrooyen-inv.github.io/external-resource-verifier/'
+    url: 'https://external-resource-checker.netlify.app/'
   },
   {
     name: 'Placeholder Replacer',
