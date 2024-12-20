@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { MoonIcon, SunIcon } from 'lucide-react';
 import { ThemeContext } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
@@ -7,13 +8,9 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 p-2 bg-slate-200 dark:bg-zinc-800 rounded-full shadow-md"
+      className="absolute top-4 right-4 p-2 bg-gray-100 dark:bg-gray-800 rounded-full"
     >
-      {theme === 'light' ? (
-        <i className="fas fa-moon text-slate-800"></i>
-      ) : (
-        <i className="fas fa-sun text-zinc-200"></i>
-      )}
+      {theme === 'light' ? <MoonIcon /> : <SunIcon />}
     </button>
   );
 };
