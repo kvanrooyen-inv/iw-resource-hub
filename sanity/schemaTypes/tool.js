@@ -1,5 +1,21 @@
 import {defineField, defineType} from 'sanity'
 
+// Define the category schema
+export const category = defineType({
+  name: 'category',
+  title: 'Category',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: Rule => Rule.required()
+    }
+  ]
+})
+
+// Update the tool schema to include category reference
 export const tools = defineType({
   name: 'tool',
   title: 'Tool',
@@ -24,19 +40,11 @@ export const tools = defineType({
       validation: Rule => Rule.required()
     },
     {
-      name: 'order',
-      title: 'Order',
-      type: 'number',
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}],
       validation: Rule => Rule.required()
-    }
-  ],
-  orderings: [
-    {
-      title: 'Display Order',
-      name: 'orderAsc',
-      by: [
-        {field: 'order', direction: 'asc'}
-      ]
     }
   ]
 })

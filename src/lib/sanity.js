@@ -4,7 +4,7 @@ export const client = createClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
   dataset: process.env.REACT_APP_SANITY_DATASET,
   useCdn: true, // `false` if you want to ensure fresh data
-  apiVersion: '2024-01-01', // use current date in YYYY-MM-DD format
+  apiVersion: '2025-04-01', // use current date in YYYY-MM-DD format
 });
 
 // Helper function to get all tools
