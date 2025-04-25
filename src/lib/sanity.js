@@ -7,7 +7,21 @@ export const client = createClient({
   apiVersion: '2025-04-01', // use current date in YYYY-MM-DD format
 });
 
-// Helper function to get all tools
 export async function getTools() {
-  return client.fetch(`*[_type == "tool"] | order(order asc)`);
+  return client.fetch(`
+    *[_type == "tool"]{
+      _id,
+      name,
+      description,
+      url,
+      "categoryId": category._ref
+    }
+  `);
+}
+
+export async function getCategories() {
+  return client.fetch(`*[_type == "category"]{
+    _id,
+    title
+  }`);
 }

@@ -1,22 +1,6 @@
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
-// Define the category schema
-export const category = defineType({
-  name: 'category',
-  title: 'Category',
-  type: 'document',
-  fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: Rule => Rule.required()
-    }
-  ]
-})
-
-// Update the tool schema to include category reference
-export const tools = defineType({
+export const tool = defineType({
   name: 'tool',
   title: 'Tool',
   type: 'document',
@@ -25,26 +9,26 @@ export const tools = defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'category',
       title: 'Category',
       type: 'reference',
       to: [{type: 'category'}],
-      validation: Rule => Rule.required()
-    }
-  ]
+      validation: (Rule) => Rule.required(),
+    },
+  ],
 })
