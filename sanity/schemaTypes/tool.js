@@ -1,6 +1,6 @@
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
-export const tools = defineType({
+export const tool = defineType({
   name: 'tool',
   title: 'Tool',
   type: 'document',
@@ -9,34 +9,26 @@ export const tools = defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-      validation: Rule => Rule.required()
-    }
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}],
+      validation: (Rule) => Rule.required(),
+    },
   ],
-  orderings: [
-    {
-      title: 'Display Order',
-      name: 'orderAsc',
-      by: [
-        {field: 'order', direction: 'asc'}
-      ]
-    }
-  ]
 })
